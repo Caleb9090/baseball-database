@@ -8,7 +8,7 @@ CREATE Table teams (
     mascot VARCHAR(255),
     abbreviation VARCHAR(3),
     league ENUM ('AL', 'NL'),
-    division ENUM('East', 'West','Central')
+    division ENUM('East', 'West','Central'),
     Primary key(id)
 );
 
@@ -32,7 +32,7 @@ Create Table games(
     homeScore INT,
     awayScore INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(homeTeamId) REFERENCES teams(id)
+    FOREIGN KEY(homeTeamId) REFERENCES teams(id),
     FOREIGN KEY (awayTeamId) REFERENCES teams(id)
 );
 
@@ -67,5 +67,5 @@ CREATE TABLE pitcherStats (
     PRIMARY KEY (playerId, gameId),
     FOREIGN KEY(playerId) REFERENCES players(id),
     FOREIGN KEY(gameId) REFERENCES games(id)
-)
+);
 
